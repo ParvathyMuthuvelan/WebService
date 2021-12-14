@@ -1,0 +1,50 @@
+1)Create a REST service that returns  
+
+i)country details
+ 
+URL: /country 
+Method Annotation: @Get 
+Method Name: getCountryIndia() 
+Sample Request: http://localhost:8080/RestService/country 
+Sample Response: 
+{ 
+  "code": "IN", 
+  "name": "India" 
+} 
+
+ii)all countries
+Method Annotation: @Get("/countries") 
+Method Name: getAllCountries() 
+Sample Request: http://localhost:8080/RestService/countries 
+Sample Response: 
+[ 
+  { "code": "IN", "name": "India"}, 
+  { "code": "US", "name": "United States"}, 
+  { "code": "JP", "name": "Japan"}, 
+  { "code": "DE", "name": "Germany"} 
+] 
+
+iii)returns a specific country based on country code. 
+Method Annotation: @Get("/countries/{code}") 
+Method Name: getCountry(String code) 
+Sample Request: http://localhost:8080/RestService/country/in 
+ Sample Response: 
+{ 
+  "code": "IN", 
+  "name": "India" 
+} 
+
+iv)deletes a specific country based on country code. 
+Method Annotation: @delete("/countries/{code}") 
+Method Name: getCountry(String code) 
+Sample Request: http://localhost:8080/RestService/country/in 
+ Sample Response: 
+{ 
+ country deleted
+} 
+ 
+v)adds a country detail. 
+Method Annotation: @Post("/add") 
+Method Name: addCountry(Country c) 
+Sample Request: http://localhost:8080/RestService/addCountry
+ 
