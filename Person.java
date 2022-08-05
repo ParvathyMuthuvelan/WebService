@@ -2,9 +2,8 @@ package com.webservice.model;
 
 import javax.ws.rs.Produces;
 import javax.xml.bind.annotation.XmlRootElement;
-
 @Produces("application/json")
-@XmlRootElement(name="person")
+@XmlRootElement(name = "person")
 public class Person {
 	private String name;
 	private int age;
@@ -36,9 +35,7 @@ public class Person {
 
 	@Override
 	public String toString() {
-		return id + ":" + name + ":" + age;
+		return id + "::" + name + "::" + age;
 	}
 
 }
-
-
