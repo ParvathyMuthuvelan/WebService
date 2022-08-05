@@ -86,4 +86,23 @@ public class CustomerDaoImpl implements CustomerDao {
 		return list;
 	}
 
+	@Override
+	public boolean updateCustomer(Customer c) {
+		boolean result=false;
+		PreparedStatement ps = null;
+		Connection conn = null;
+		try {
+			conn = DBHandler.getConnection();
+			String query = "update customer set email=? where id=?";
+			ps = conn.prepareStatement(query);
+			ps.setString(1, c.getEmail());
+			ps.setInt(2, c.getCustomerId());
+			int res = ps.executeUpdate();
+		result=true;
+		} catch (SQLException e) {
+			System.out.println(e.getMessage());
+		}
+		return result;
+	}
+
 }

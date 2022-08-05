@@ -13,4 +13,6 @@ public interface CustomerDao {
 	public Customer getCustomer(int id);
 
 	public List<Customer> getAllCustomers();
+
+	public boolean updateCustomer(Customer c);
 }
