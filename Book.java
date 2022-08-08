@@ -1,45 +1,52 @@
-package com.webservice.model;
+package com.jaxb;
 
-import javax.ws.rs.Produces;
-import javax.ws.rs.core.MediaType;
+import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlType;
 
-@Produces(MediaType.APPLICATION_JSON)
-@XmlRootElement(name="book")
+@XmlRootElement(name = "book")
+// If you want you can define the order in which the fields are written
+// Optional
+@XmlType(propOrder = { "name","author", "publisher", "isbn" })
 public class Book {
-	private String author;
-	private String country;
-	private int year;
 
-	public Book(String author, String country, int year) {
-		super();
-		this.author = author;
-		this.country = country;
-		this.year = year;
-	}
+    private String name;
+    private String author;
+    private String publisher;
+    private String isbn;
 
-	public String getAuthor() {
-		return author;
-	}
+    // If you like the variable name, e.g. "name", you can easily change this
+    // name for your XML-Output:
+    @XmlElement(name = "title")
+    public String getName() {
+        return name;
+    }
 
-	public void setAuthor(String author) {
-		this.author = author;
-	}
+    public void setName(String name) {
+        this.name = name;
+    }
 
-	public String getCountry() {
-		return country;
-	}
+    public String getAuthor() {
+        return author;
+    }
 
-	public void setCountry(String country) {
-		this.country = country;
-	}
+    public void setAuthor(String author) {
+        this.author = author;
+    }
 
-	public int getYear() {
-		return year;
-	}
+    public String getPublisher() {
+        return publisher;
+    }
 
-	public void setYear(int year) {
-		this.year = year;
-	}
+    public void setPublisher(String publisher) {
+        this.publisher = publisher;
+    }
 
+    public String getIsbn() {
+        return isbn;
+    }
+
+    public void setIsbn(String isbn) {
+        this.isbn = isbn;
+    }
 }
